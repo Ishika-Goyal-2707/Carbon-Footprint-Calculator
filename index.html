@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Footprint Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+ 
+ <script>
+    window.onload = function() {
+      // Your chart initialization code here
+    };
+  </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleTheme()">🌓 Toggle Theme</button>
+  <div class="container">
+    <div id="loading" style="display:none; text-align:center;">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+      </div>
+      
+    <h1>🌍 Carbon Footprint Calculator</h1>
+    <p>Find out your yearly carbon emissions and learn how to reduce them!</p>
+
+    <div class="form-group">
+
+        <label>🧑 Your Name (optional):
+            <input type="text" id="userName" placeholder="e.g., Alex Green">
+          </label>
+          
+          <label>📍 Your Location (optional):
+            <input type="text" id="userLocation" placeholder="e.g., New York, USA">
+          </label>
+          
+      <label>🚗 Miles driven per week:
+        <input type="number" id="miles" placeholder="e.g., 200">
+      </label>
+
+      <label>⚡ Electricity use (kWh per month):
+        <input type="number" id="electricity" placeholder="e.g., 400">
+      </label>
+
+      <label>❄️ AC usage (hours per month):
+        <input type="number" id="ac" placeholder="e.g., 100">
+      </label>
+
+      <label>🍖 Meat-based meals per week:
+        <input type="number" id="meat" placeholder="e.g., 10">
+      </label>
+
+      <label>🍽️ Diet type:
+        <select id="diet">
+          <option value="vegan">Vegan</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="average">Average</option>
+          <option value="high-meat">High-meat</option>
+        </select>
+      </label>
+
+      <button onclick="calculateFootprint()">🌱 Calculate My Impact</button>
+      <button id="saveReport" style="display:none;" onclick="saveAsPDF()">💾 Save Report as PDF</button>
+    </div>
+
+    <div class="result" id="result" style="display:none;"></div>
+    <canvas id="footprintChart" width="400" height="300"></canvas>
+
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 Carbon Footprint Calculator. All rights reserved.
+  </footer>
+  
+ <script src="script.js"></script>
+</body>
+</html>
